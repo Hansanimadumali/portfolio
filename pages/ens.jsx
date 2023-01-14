@@ -1,11 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import Crypto from "../public/assets/projects/crypto.jpg";
-import SinduChart from "../public/assets/projects/sinduChart.jpg";
+import Ens from "../public/assets/projects/ensApp.jpg";
 import { RiRadioButtonFill } from "react-icons/ri";
 import Link from "next/link";
 
-const sinduChart = () => {
+const ens = () => {
   return (
     <div className="w-full">
       <div className="w-screen h-[30vh] lg:h-[40vh] relative">
@@ -14,12 +13,12 @@ const sinduChart = () => {
           //   style={{ objectFit: "cover" }}
           className="absolute z-1"
           fill
-          src={SinduChart}
+          src={Ens}
           alt="/"
         />
         <div className="absolute top-[70%] max-w-[1240px] w-full left-[50%] right-[50%] translate-x-[-50%] translate-y-[-50%] text-white z-10 p-2">
-          <h2 className="py-2">Sindu Chart</h2>
-          <h3>React JS / Tailwind </h3>
+          <h2 className="py-2">ENS Sudomain Creator</h2>
+          <h3>React JS / MUI </h3>
         </div>
       </div>
 
@@ -28,10 +27,9 @@ const sinduChart = () => {
           {/* <p className="pb-8 text-blue-800">Project</p> */}
           <h2>Overview</h2>
           <p className="py-4 text-gray-600 text-justify">
-            This app was built using React JS and is hosted on AWS. This project
-            allows users to view all airplay charts in Sri lanka for 10 selected
-            FM channels, Top Artists, Top albums throughout the year filtering
-            by language, year, month, date.
+            This app was built using React JS and is hosted on AWS. Application
+            allows authorized users to create their subdomains. The application
+            uses smart contracts to interact with the blockchain.
           </p>
           <a
             href="https://github.com/fireclint/property-finder"
@@ -78,4 +76,4 @@ const sinduChart = () => {
   );
 };
 
-export default sinduChart;
+export default ens;

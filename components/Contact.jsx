@@ -17,7 +17,7 @@ const Contact = () => {
         <h2 className="py-4">Get In Touch</h2>
         <div className="grid lg:grid-cols-5 gap-8">
           {/* Left */}
-          <div className="col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4">
+          <div className="col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 dark:bg-gray-800 rounded-xl p-4">
             <div className="lg:p-4 h-full ">
               <div>
                 <Image
@@ -28,25 +28,27 @@ const Contact = () => {
               </div>
               <div>
                 <h2 className="py-2">Hansani Perera</h2>
-                <p>Front-End Developer</p>
-                <p className="py-4">
+                <p className="dark:text-gray-300">Front-End Developer</p>
+                <p className="py-4 dark:text-gray-300">
                   I am available for freelance or full-time positions. Contact
                   me and let&apos;s talk.
                 </p>
               </div>
               <div>
-                <p className="uppercase pt-8">Connect With Me</p>
+                <p className="uppercase pt-8 dark:text-gray-200">
+                  Connect With Me
+                </p>
                 <div className="flex items-center justify-between py-4">
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+                  <div className="rounded-full shadow-lg shadow-gray-400 dark:text-gray-300 dark:bg-gray-700 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                     <FaLinkedinIn />
                   </div>
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+                  <div className="rounded-full shadow-lg shadow-gray-400 dark:text-gray-300 dark:bg-gray-700 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                     <FaGithub />
                   </div>
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+                  <div className="rounded-full shadow-lg shadow-gray-400 dark:text-gray-300 dark:bg-gray-700 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                     <AiOutlineMail />
                   </div>
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+                  <div className="rounded-full shadow-lg shadow-gray-400 dark:text-gray-300 dark:bg-gray-700 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                     <BsFillPersonLinesFill />
                   </div>
                 </div>
@@ -63,7 +65,9 @@ const Contact = () => {
               >
                 <div className="grid md:grid-cols-2 gap-4 w-full py-2">
                   <div className="flex flex-col">
-                    <label className="uppercase text-sm py-2">Name</label>
+                    <label className="uppercase text-sm py-2 dark:text-gray-200">
+                      Name
+                    </label>
                     <input
                       className="border-2 rounded-lg p-3 flex border-gray-300"
                       type="text"
@@ -71,7 +75,7 @@ const Contact = () => {
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label className="uppercase text-sm py-2">
+                    <label className="uppercase text-sm py-2 dark:text-gray-200">
                       Phone Number
                     </label>
                     <input
@@ -82,7 +86,9 @@ const Contact = () => {
                   </div>
                 </div>
                 <div className="flex flex-col py-2">
-                  <label className="uppercase text-sm py-2">Email</label>
+                  <label className="uppercase text-sm py-2 dark:text-gray-200">
+                    Email
+                  </label>
                   <input
                     className="border-2 rounded-lg p-3 flex border-gray-300"
                     type="email"
@@ -90,7 +96,9 @@ const Contact = () => {
                   />
                 </div>
                 <div className="flex flex-col py-2">
-                  <label className="uppercase text-sm py-2">Subject</label>
+                  <label className="uppercase text-sm py-2 dark:text-gray-200">
+                    Subject
+                  </label>
                   <input
                     className="border-2 rounded-lg p-3 flex border-gray-300"
                     type="text"
@@ -98,7 +106,9 @@ const Contact = () => {
                   />
                 </div>
                 <div className="flex flex-col py-2">
-                  <label className="uppercase text-sm py-2">Message</label>
+                  <label className="uppercase text-sm py-2 dark:text-gray-200">
+                    Message
+                  </label>
                   <textarea
                     className="border-2 rounded-lg p-3 border-gray-300"
                     rows="10"

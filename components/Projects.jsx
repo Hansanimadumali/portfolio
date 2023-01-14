@@ -1,6 +1,7 @@
 import React from "react";
 import Crypto from "../public/assets/projects/crypto.jpg";
 import SinduChart from "../public/assets/projects/sinduChart.jpg";
+import Ens from "../public/assets/projects/ensApp.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import ProjectItem from "../components/ProjectItem";
@@ -26,8 +27,8 @@ const Projects = () => {
           />
           <ProjectItem
             title="ENS Subdomain Creator"
-            backgroundImg={Crypto}
-            projectUrl="/crypto"
+            backgroundImg={Ens}
+            projectUrl="/ens"
           />
           <ProjectItem
             title="Admin Panel"
