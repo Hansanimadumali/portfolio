@@ -17,7 +17,7 @@ const adminSindu = () => {
           alt="/"
         />
         <div className="absolute top-[70%] max-w-[1240px] w-full left-[50%] right-[50%] translate-x-[-50%] translate-y-[-50%] text-white z-10 p-2">
-          <h2 className="py-2">Crypto Wallet Transactions</h2>
+          <h2 className="py-2">Admin Panel</h2>
           <h3>React JS / MUI </h3>
         </div>
       </div>
@@ -27,21 +27,12 @@ const adminSindu = () => {
           {/* <p className="pb-8 text-blue-800">Project</p> */}
           <h2>Overview</h2>
           <p className="py-4 text-gray-600 text-justify">
-            This app was built using React JS and is hosted on Firebase. Users
-            are able to search properties based on their Wallet Address to
-            retrieve all the transactions occur through their meta mask wallet.
-            You will be able to filter transactions by giving a date range. User
-            can download a statement for the selected date range. User also able
-            to see their current ethereum balance including total credits and
-            total debits witin the selected date range.
+            This application was created using React JS, MUI and Node JS. This
+            application is intended for developers, and developers are able to
+            add, delete, and update data that requires a particular application
+            through this application.
           </p>
-          <a
-            href="https://github.com/fireclint/property-finder"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {/* <button className="px-8 py-2 mt-4 mr-8">Code</button> */}
-          </a>
+
           <a
             href="https://www.ens1.finitynordic.com/Ad3/"
             target="_blank"
@@ -64,10 +55,10 @@ const adminSindu = () => {
                 <RiRadioButtonFill className="pr-1" /> Javascript
               </p>
               <p className="text-gray-600 py-2 flex items-center">
-                <RiRadioButtonFill className="pr-1" /> Etherscan/Infura/Alchemy
+                <RiRadioButtonFill className="pr-1" /> Node JS
               </p>
               <p className="text-gray-600 py-2 flex items-center">
-                <RiRadioButtonFill className="pr-1" /> Ethereum Blockchain
+                <RiRadioButtonFill className="pr-1" /> Dynamo DB/S3
               </p>
             </div>
           </div>

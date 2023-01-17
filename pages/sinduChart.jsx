@@ -56,16 +56,17 @@ const sinduChart = () => {
                 <RiRadioButtonFill className="pr-1" /> React
               </p>
               <p className="text-gray-600 py-2 flex items-center">
-                <RiRadioButtonFill className="pr-1" /> MUI
+                <RiRadioButtonFill className="pr-1" /> Tailwind
               </p>
               <p className="text-gray-600 py-2 flex items-center">
                 <RiRadioButtonFill className="pr-1" /> Javascript
               </p>
               <p className="text-gray-600 py-2 flex items-center">
-                <RiRadioButtonFill className="pr-1" /> Etherscan/Infura/Alchemy
+                <RiRadioButtonFill className="pr-1" />
+                Node JS
               </p>
               <p className="text-gray-600 py-2 flex items-center">
-                <RiRadioButtonFill className="pr-1" /> Ethereum Blockchain
+                <RiRadioButtonFill className="pr-1" /> Cognito/Dynamo DB/Lambda
               </p>
             </div>
           </div>

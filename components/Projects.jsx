@@ -32,7 +32,7 @@ const Projects = () => {
           <ProjectItem
             title="Admin Panel"
             backgroundImg={SinduAdmin}
-            projectUrl="/crypto"
+            projectUrl="/adminSindu"
           />
         </div>
       </div>
