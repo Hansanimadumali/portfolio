@@ -1,9 +1,8 @@
 import React from "react";
+import SinduAdmin from "../public/assets/projects/sinduAdmin.jpg";
 import Crypto from "../public/assets/projects/crypto.jpg";
 import SinduChart from "../public/assets/projects/sinduChart.jpg";
 import Ens from "../public/assets/projects/ensApp.jpg";
-import Image from "next/image";
-import Link from "next/link";
 import ProjectItem from "../components/ProjectItem";
 
 const Projects = () => {
@@ -32,7 +31,7 @@ const Projects = () => {
           />
           <ProjectItem
             title="Admin Panel"
-            backgroundImg={Crypto}
+            backgroundImg={SinduAdmin}
             projectUrl="/crypto"
           />
         </div>
