@@ -55,7 +55,7 @@ const Main = () => {
               </div>
             </Link>
             <a
-              href="https://drive.google.com/uc?id=1eWklpmEbqw_fXJB_SwzDT7TplFswhx05&export=download"
+              href="https://drive.google.com/uc?id=1DUaSQcv9BIcG95UpuXNOlys_aOuhl3JZ&export=download"
               // download="Hansani M. Perera.pdf"
               rel="noreferrer"
               target="_blank"
