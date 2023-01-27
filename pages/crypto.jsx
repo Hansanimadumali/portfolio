@@ -27,13 +27,13 @@ const crypto = () => {
           {/* <p className="pb-8 text-blue-800">Project</p> */}
           <h2>Overview</h2>
           <p className="py-4 text-gray-600 text-justify">
-            This app was built using React JS and is hosted on Firebase. Users
-            are able to search properties based on their Wallet Address to
-            retrieve all the transactions occur through their meta mask wallet.
-            You will be able to filter transactions by giving a date range. User
-            can download a statement for the selected date range. User also able
-            to see their current ethereum balance including total credits and
-            total debits witin the selected date range.
+            This app was built using React JS and is hosted on AWS. Users are
+            able to search properties based on their Wallet Address to retrieve
+            all the transactions occur through their meta mask wallet. You will
+            be able to filter transactions by giving a date range. User can
+            download a statement for the selected date range. User also able to
+            see their current ethereum balance including total credits and total
+            debits witin the selected date range.
           </p>
           <a
             href="https://github.com/fireclint/property-finder"
