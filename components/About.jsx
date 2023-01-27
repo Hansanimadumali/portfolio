@@ -26,13 +26,17 @@ const About = () => {
             are some of my experiences in backend development.
           </p>
           <p className="py-2 text-gray-600 dark:text-gray-300 text-justify">
-            I admire the drive toward more inclusion and diversity, and I feel
-            that being a great developer means using the greatest tool for the
-            job rather than employing a certain language. I&#39;m excited to
-            make the leap and continue refining my skills with the right
-            company. Drop me a message in the contact form below if you&#39;re
-            looking for a developer to add to your team. I&#39;d love to hear
-            from you!
+            I am deeply impressed by the focus on promoting inclusion and
+            diversity, and firmly believe that it plays a vital role in building
+            a positive and productive work atmosphere. I am dedicated to
+            actively fostering an inclusive culture in any team I am a part of.
+            To me, being a great developer means being open-minded and adaptable
+            when it comes to selecting the most appropriate tools and
+            technologies for a project, rather than adhering strictly to a
+            specific language or framework. I&#39;m excited to make the leap and
+            continue refining my skills with the right company. Drop me a
+            message in the contact form below if you&#39;re looking for a
+            developer to add to your team. I&#39;d love to hear from you!
           </p>
         </div>
         <div className="w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-4 hover:scale-105 ease-in duration-300 dark:bg-gray-800">
