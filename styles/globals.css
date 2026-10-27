@@ -2,42 +2,162 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+:root {
+  --bg: #0b0d11;
+  --cyan: 94 231 240;
+  --violet: 169 139 255;
+  --header-h: 4rem;
 }
 
 @layer base {
+  html {
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
-    @apply bg-[#ecf0f3] text-[#1f2937] tracking-wide dark:bg-gray-900
+    @apply bg-ink-900 font-sans text-mist-200 antialiased;
+    text-rendering: optimizeLegibility;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold dark:text-gray-100
+  h1, h2, h3, h4 {
+    @apply font-display text-mist-50 tracking-tight;
   }
 
-  h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl dark:text-gray-400
+  ::selection {
+    background: rgb(var(--violet) / 0.35);
+    color: #fff;
   }
 
-  h2 {
-    @apply text-3xl sm:text-4xl
+  :focus-visible {
+    outline: 2px solid rgb(var(--cyan));
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  /* Small monospace label above section titles. */
+  .eyebrow {
+    @apply font-mono text-[0.7rem] uppercase tracking-[0.28em] text-cyan-glow/80;
   }
 
-  li {
-    @apply cursor-pointer
+  .section-title {
+    @apply font-display text-3xl font-semibold leading-[1.05] text-mist-50 sm:text-4xl lg:text-5xl;
   }
 
-  button {
-    @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff]
+  .gradient-text {
+    background: linear-gradient(100deg, #ffffff 10%, rgb(var(--cyan)) 55%, rgb(var(--violet)) 95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-mist-200;
+  }
+
+  .glass {
+    @apply rounded-2xl border border-white/[0.08] bg-white/[0.03];
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition duration-300;
+  }
+
+  .btn-primary {
+    @apply btn text-ink-950;
+    background: linear-gradient(110deg, rgb(var(--cyan)), rgb(var(--violet)));
+    box-shadow: 0 8px 30px -10px rgb(var(--cyan) / 0.6);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 10px 40px -8px rgb(var(--violet) / 0.7);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    @apply btn border border-white/15 text-mist-50 hover:border-cyan-glow/60 hover:bg-white/[0.04];
+  }
+
+  /* The card that sits on the 3D wheel. */
+  .panel-card {
+    @apply relative h-full w-full overflow-hidden overflow-clip rounded-[28px] border;
+    border-color: rgb(255 255 255 / calc(0.07 + var(--active, 0) * 0.07));
+    background:
+      radial-gradient(120% 80% at 0% 0%, rgb(var(--cyan) / 0.06), transparent 50%),
+      radial-gradient(120% 80% at 100% 100%, rgb(var(--violet) / 0.07), transparent 55%),
+      linear-gradient(180deg, #12151c 0%, #0d1015 100%);
+    box-shadow:
+      0 0 0 1px rgb(0 0 0 / 0.4),
+      0 40px 120px -40px rgb(0 0 0 / 0.9),
+      0 0 80px -30px rgb(var(--violet) / calc(var(--active, 0) * 0.35));
+  }
+
+  .panel-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgb(var(--cyan) / 0.5), rgb(var(--violet) / 0.5), transparent);
+    opacity: calc(0.3 + var(--active, 0) * 0.7);
+  }
+
+  .panel-viewport {
+    overflow: hidden;
+    overflow: clip;
+  }
+
+  .panel-viewport[data-overflow="true"] {
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 28px, #000 calc(100% - 48px), transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0, #000 28px, #000 calc(100% - 48px), transparent 100%);
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-white/10 bg-ink-950/60 px-4 pb-2.5 pt-6 text-sm text-mist-50 outline-none transition placeholder:text-transparent;
+  }
+
+  .field:focus {
+    @apply border-cyan-glow/60;
+    box-shadow: 0 0 0 4px rgb(var(--cyan) / 0.12);
+  }
+
+  .field-label {
+    @apply pointer-events-none absolute left-4 top-4 origin-left text-sm text-mist-400 transition-all duration-200;
+  }
+
+  .field:focus + .field-label,
+  .field:not(:placeholder-shown) + .field-label {
+    @apply top-2 text-[0.68rem] uppercase tracking-[0.18em] text-cyan-glow/80;
+  }
 }
 
 @layer utilities {
-  .animation-delay-2000 {
-    animation-delay: 2s;
+  .preserve-3d {
+    transform-style: preserve-3d;
   }
-  .animation-delay-4000 {
-    animation-delay: 4s;
+
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

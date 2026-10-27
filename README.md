@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hansani Perera — Portfolio v2
 
-## Getting Started
+A dark, single-page portfolio built around a **scroll-driven 3D wheel**: each section is a card on the rim of an invisible cylinder. Scrolling turns the wheel. The next card rotates forward and comes into focus, and the previous one recedes and blurs.
 
-First, run the development server:
+**Stack:** Next.js 15 (pages router) · React 19 · TypeScript · Tailwind CSS 3 · Motion (`motion/react`) · CSS 3D transforms
+
+## Editing content
+
+All text, links, publications, projects and images are in **[`data/portfolio.ts`](data/portfolio.ts)**. Components only render what's in that file.
+
+- Items marked `TODO` in that file still need your input (company name, dates, Google Scholar URL, previous degrees, etc.).
+- Optional fields that are empty or missing are not shown on the site.
+- Add an AI project with `categories: ["ai", ...]`. The "AI" filter tab appears on its own.
+- Scrapbook photos: put images in `public/assets/beyond/` and set `image: "/assets/beyond/<file>.jpg"` on an item.
+- Contact form messages go to the same Getform endpoint as v1 (`contactForm.endpoint`).
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
+npm install
+npm run dev          # http://localhost:3000 (hot reload)
+
+# production preview
+npm run build
+npm start            # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Node 18.18+ is required. Netlify is pinned to Node 20 in `netlify.toml`.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Deploy on Netlify
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+`netlify.toml` sets the build command (`npm run build`) and publish directory (`.next`). Netlify detects Next.js and applies its Next.js runtime automatically. No plugin needs to be installed.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+**Preview first (recommended):**
+1. Push the branch: `git push -u origin portfolio-v2`
+2. In Netlify go to **Site configuration → Build & deploy → Branches and deploy contexts**. Enable branch deploys for `portfolio-v2` (or "All").
+3. Netlify builds it at `https://portfolio-v2--<your-site>.netlify.app`. Pull requests also get Deploy Previews.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**Go live:** merge `portfolio-v2` into your production branch (`dark-mode`), or change the production branch in Netlify to `portfolio-v2`.
 
-## Learn More
+If an old build setting overrides the toml (for example a custom publish directory), clear it in the Netlify UI so `netlify.toml` applies.
 
-To learn more about Next.js, take a look at the following resources:
+## How the wheel works
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`components/WheelCarousel.tsx`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Page scroll → spring-smoothed → a continuous `pos` (0 … n-1).
+- Each section gets a **dwell** segment, where the card is centred. If its content is taller than the card, the dwell scrolls the content inside the card. A **transition** segment follows, where the wheel turns.
+- Each card is placed with `translateZ(-R) rotateX(θ) translateZ(R)`, and its scale, blur, opacity and depth come from its distance to `pos`. `R` is chosen so neighbouring cards never intersect.
+- Anchor links (`#projects`), deep links, the nav, the section rail and keyboard focus all go through the same position map.
 
-## Deploy on Vercel
+## Accessibility
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Simple view** toggle in the header (remembered per browser) shows normal stacked sections. It's on by default for `prefers-reduced-motion`.
+- Keyboard focus moving into a card turns the wheel to it and scrolls the focused element into view.
+- Semantic sections, labelled controls, a focus-trapped citation dialog, and visible focus rings.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Project structure
+
+```
+data/portfolio.ts           ← all content
+components/WheelCarousel.tsx← 3D wheel + simple view + navigation context
+components/SiteHeader.tsx   ← top nav, progress bar, section rail, mobile menu
+components/Backdrop.tsx     ← ambient background
+components/sections/*       ← Hero, Experience, Projects, Publications, Research, Education, Beyond, Contact
+lib/citation.ts             ← BibTeX / APA generation
+```
